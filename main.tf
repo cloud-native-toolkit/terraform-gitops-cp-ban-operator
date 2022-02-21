@@ -1,5 +1,5 @@
 locals {
-  name          = "my-module"
+  name          = "iaf-operator"
   bin_dir       = module.setup_clis.bin_dir
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
   service_url   = "http://${local.name}.${var.namespace}"
@@ -22,11 +22,11 @@ resource null_resource create_yaml {
 
     environment = {
       VALUES_CONTENT = yamlencode(local.values_content)
-    }
+    }   
   }
 }
 
-resource null_resource setup_gitops {
+resource null_resource setup_iaf_operator_subscription {
   depends_on = [null_resource.create_yaml]
 
   triggers = {
