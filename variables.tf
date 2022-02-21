@@ -65,6 +65,7 @@ variable "git_credentials" {
 
 variable "namespace" {
   type        = string
+  default = "cp4automation"
   description = "The namespace where the application should be deployed"
 }
 
@@ -78,4 +79,19 @@ variable "server_name" {
   type        = string
   description = "The name of the server"
   default     = "default"
+}
+variable "channel" {
+  type        = string
+  description = "The channel that should be used to deploy the operator"
+  default     = "V21.1"
+}
+variable "catalog" {
+  type        = string
+  description = "The catalog source that should be used to deploy the operator"
+  default     = "ibm-operator-catalog"
+}
+variable "catalog_namespace" {
+  type        = string
+  description = "The namespace where the catalog has been deployed"
+  default     = "openshift-marketplace"
 }
