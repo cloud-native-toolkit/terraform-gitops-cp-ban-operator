@@ -1,4 +1,4 @@
-/*
+
 output "name" {
   description = "The name of the module"
   value       = local.name
@@ -34,4 +34,3 @@ output "type" {
   value       = local.type
   depends_on  = [null_resource.setup_gitops]
 }
-*/

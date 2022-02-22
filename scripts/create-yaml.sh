@@ -8,7 +8,7 @@ NAMESPACE="$4"
 
 mkdir -p "${DEST_DIR}"
 
-cat > "${DEST_DIR}/iaf_operator_subscription.yaml" << EOL
+cat > "${DEST_DIR}/gitops-cp-ban-operator-.yaml" << EOL
 
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
