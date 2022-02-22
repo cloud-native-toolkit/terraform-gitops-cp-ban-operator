@@ -26,7 +26,7 @@ resource null_resource create_yaml {
   }
 }
 
-resource null_resource setup_iaf_operator_subscription {
+resource null_resource setup_gitops {
   depends_on = [null_resource.create_yaml]
 
   triggers = {
