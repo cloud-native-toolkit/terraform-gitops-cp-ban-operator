@@ -1,4 +1,4 @@
-name: gitops-cp-ban-operator
+name: ibm-iaf-operator
 type: gitops
 description: >-
   Module to populate a gitops repo with the resources to provision
