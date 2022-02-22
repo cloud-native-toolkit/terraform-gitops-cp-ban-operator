@@ -3,7 +3,7 @@
 NAME="$1"
 DEST_DIR="$2"
 NAMESPACE="$3"
-CHART_DIR ="$4"
+CHART_DIR="$4"
 
 mkdir -p "${DEST_DIR}"
 echo ">>>>>>>> ${DEST_DIR} ${NAMESPACE} ${NAME}"
