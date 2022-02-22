@@ -65,7 +65,7 @@ variable "git_credentials" {
 
 variable "namespace" {
   type        = string
-  default = "cp4automation"
+  default = "cp4ba"
   description = "The namespace where the application should be deployed"
 }
 
@@ -91,7 +91,7 @@ variable "catalog" {
   default     = "ibm-operator-catalog"
 }
 variable "catalog_namespace" {
-  type        = string
+  type        = string  
   description = "The namespace where the catalog has been deployed"
   default     = "openshift-marketplace"
 }

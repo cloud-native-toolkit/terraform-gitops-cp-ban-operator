@@ -4,6 +4,22 @@ locals {
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
   service_url   = "http://${local.name}.${var.namespace}"
   values_content = {
+    "ibm-iaf-operator" = {
+      subscriptions = {
+        ibmcp4a = {
+          name = "ibm-automation"
+          subscription = {
+            channel             = var.channel
+            installPlanApproval = "Automatic"
+            name                = "ibm-automation"
+            source              = var.catalog
+            sourceNamespace     = var.catalog_namespace
+          }
+        }
+      }
+    }
+
+
   }
   layer = "services"
   type  = "base"
@@ -16,7 +32,7 @@ module setup_clis {
   source = "github.com/cloud-native-toolkit/terraform-util-clis.git"
 }
 
-resource null_resource create_yaml {
+resource null_resource create_yaml {  
   provisioner "local-exec" {
     command = "${path.module}/scripts/create-yaml.sh '${local.name}' '${local.yaml_dir}'"
 
