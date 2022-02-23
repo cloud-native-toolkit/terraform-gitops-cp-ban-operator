@@ -4,12 +4,12 @@
 
 subscriptions:
   ibmautomation:
-    name: ibm-automation
+    name: ibm-automation-foundation-core
     namespace: gitops-cp-ban-operator
     subscription:
       channel: v1.3
       installPlanApproval: Automatic
-      name: ibm-automation
+      name: ibm-automation-foundation-core
       source: ibm-operator-catalog
       sourceNamespace: openshift-marketplace
 ####Namespace needs to be added  
