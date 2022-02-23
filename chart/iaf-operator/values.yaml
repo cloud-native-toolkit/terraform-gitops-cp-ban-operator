@@ -12,4 +12,4 @@ subscriptions:
       name: ibm-automation
       source: ibm-operator-catalog
       sourceNamespace: openshift-marketplace
-####Namespace needs to be added
+####Namespace needs to be added  
