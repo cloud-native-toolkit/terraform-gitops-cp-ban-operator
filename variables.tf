@@ -88,7 +88,8 @@ variable "channel" {
 variable "catalog" {
   type        = string
   description = "The catalog source that should be used to deploy the operator"
-  default     = "ibm-operator-catalog"
+  #default     = "ibm-operator-catalog"  
+  default     = "iaf-core-operators"
 }
 variable "catalog_namespace" {
   type        = string  

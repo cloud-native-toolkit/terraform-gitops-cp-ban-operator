@@ -8,11 +8,11 @@ locals {
     "ibm-iaf-operator" = {
       subscriptions = {
         ibmcp4a = {
-          name = "ibm-automation"
+          name = "ibm-automation-foundation-core"
           subscription = {
             channel             = var.channel
             installPlanApproval = "Automatic"
-            name                = "ibm-automation"
+            name                = "ibm-automation-core"
             source              = var.catalog
             sourceNamespace     = var.catalog_namespace
           }
