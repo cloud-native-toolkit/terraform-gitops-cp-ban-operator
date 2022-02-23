@@ -17,6 +17,27 @@ echo ">>>>>>>> ${DEST_DIR} ${NAMESPACE} ${NAME}"
 #fi 
 cp -R "${CHART_DIR}"/* "${DEST_DIR}"
 
-if [[ -n "${VALUES_CONTENT}" ]]; then
-  echo "${VALUES_CONTENT}" > "${DEST_DIR}/iaf-operator.yaml"
-fi 
+#if [[ -n "${VALUES_CONTENT}" ]]; then
+#  echo "${VALUES_CONTENT}" > "${DEST_DIR}/iaf-operator.yaml"
+#fi 
+
+cat > "${DEST_DIR}/iaf-operator.yaml" << EOL
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-automation
+  namespace: gitops-cp-ban-operator
+  annotations:
+spec:
+      channel: v1.3
+      installPlanApproval: Automatic
+      #name: ibm-automation-foundation-core
+      name: ibm-automation
+      source: ibm-operator-catalog
+      #source: iaf-core-operators
+      sourceNamespace: openshift-marketplace
+EOL
+
+
+
+
