@@ -10,6 +10,7 @@ subscriptions:
       channel: v1.3
       installPlanApproval: Automatic
       name: ibm-automation-foundation-core
-      source: ibm-operator-catalog
+      #source: ibm-operator-catalog
+      source: iaf-core-operators
       sourceNamespace: openshift-marketplace
 ####Namespace needs to be added  
