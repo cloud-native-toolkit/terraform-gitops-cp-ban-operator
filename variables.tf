@@ -83,13 +83,13 @@ variable "server_name" {
 variable "channel" {
   type        = string
   description = "The channel that should be used to deploy the operator"
-  default     = "V21.1"
+  default     = "V1.3"
 }
 variable "catalog" {
   type        = string
   description = "The catalog source that should be used to deploy the operator"
-  #default     = "ibm-operator-catalog"  
-  default     = "iaf-core-operators"
+  default     = "ibm-operator-catalog"  
+  #default     = "iaf-core-operators"
 }
 variable "catalog_namespace" {
   type        = string  

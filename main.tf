@@ -8,13 +8,16 @@ locals {
     "ibm-iaf-operator" = {
       subscriptions = {
         ibmcp4a = {
-          name = "ibm-automation-foundation-core"
+          name = "ibm-automation"
           subscription = {
-            channel             = var.channel
+            #channel             = var.channel
+            channel             = "v1.3"
             installPlanApproval = "Automatic"
-            name                = "ibm-automation-core"
-            source              = var.catalog
+            name                = "ibm-automation"
+            #source              = var.catalog
+            source              = "ibm-operator-catalog"
             sourceNamespace     = var.catalog_namespace
+            sourceNamespace     = "openshift-marketplace"
           }
         }
       }
