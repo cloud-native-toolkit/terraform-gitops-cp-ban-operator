@@ -38,6 +38,3 @@ spec:
       sourceNamespace: openshift-marketplace
 EOL
 
-
-
-
