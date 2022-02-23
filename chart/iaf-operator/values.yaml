@@ -5,7 +5,7 @@
 subscriptions:
   ibmautomation:
     name: ibm-automation-foundation-core
-    namespace: gitops-cp-ban-operator
+    #namespace: gitops-cp-ban-operator
     subscription:
       channel: v1.3
       installPlanApproval: Automatic
