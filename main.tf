@@ -4,7 +4,7 @@ locals {
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
   service_url   = "http://${local.name}.${var.namespace}"
   chart_dir = "${path.module}/chart/iaf-operator"
-  values_content = {
+  values_content = {/*
     "ibm-iaf-operator" = {
       subscriptions = {
         ibmcp4a = {
@@ -22,7 +22,7 @@ locals {
         }
       }
     }
-   }
+   */}
   layer = "services"
   type  = "base"
   application_branch = "main" 
@@ -40,6 +40,7 @@ resource null_resource create_yaml {
 
     environment = {
       VALUES_CONTENT = yamlencode(local.values_content)
+      
     }   
   }
 }
@@ -49,7 +50,7 @@ resource null_resource setup_gitops {
 
   triggers = {
     name = local.name
-    namespace = var.namespace
+    namespace = var.namespace 
     yaml_dir = local.yaml_dir
     server_name = var.server_name
     layer = local.layer

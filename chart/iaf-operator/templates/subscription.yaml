@@ -6,3 +6,4 @@ metadata:
   annotations:
 spec:
   {{- toYaml .Values.subscriptions.ibmautomation.subscription | nindent 2 }}
+

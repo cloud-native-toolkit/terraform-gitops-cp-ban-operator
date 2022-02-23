@@ -92,7 +92,7 @@ variable "catalog" {
   #default     = "iaf-core-operators"
 }
 variable "catalog_namespace" {
-  type        = string  
+  type        = string   
   description = "The namespace where the catalog has been deployed"
   default     = "openshift-marketplace"
 }
