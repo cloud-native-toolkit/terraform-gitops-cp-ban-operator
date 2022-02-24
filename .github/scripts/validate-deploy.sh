@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+echo "*****  Starting Validate-deploy.sh  **************"
 GIT_REPO=$(cat git_repo)
 GIT_TOKEN=$(cat git_token)
 
@@ -64,7 +64,7 @@ if [[ $count -eq 20 ]]; then
   exit 1
 fi
 
-#kubectl rollout status "deployment/${DEPLOYMENT}" -n "${NAMESPACE}" || exit 1
+kubectl get subscription "${SUBSNAME}" -n "${NAMESPACE}" || exit 1
 
 cd ..
 rm -rf .testrepo 
