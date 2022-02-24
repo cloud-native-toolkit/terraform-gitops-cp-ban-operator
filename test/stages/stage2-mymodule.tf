@@ -1,4 +1,4 @@
-module "iaf_operator" {
+module "iaf-operator" {
   source = "./module"
 
   gitops_config = module.gitops.gitops_config

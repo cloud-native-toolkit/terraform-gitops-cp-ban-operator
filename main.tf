@@ -1,5 +1,5 @@
 locals {
-  name          = "iaf_operator"
+  name          = "iaf-operator"
   bin_dir       = module.setup_clis.bin_dir
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
   service_url   = "http://${local.name}.${var.namespace}"
@@ -16,7 +16,7 @@ locals {
             name                = "ibm-automation"
             #source              = var.catalog
             source              = "ibm-operator-catalog"
-            sourceNamespace     = var.catalog_namespace
+            #sourceNamespace     = var.catalog_namespace
             sourceNamespace     = "openshift-marketplace"
           }
         }
