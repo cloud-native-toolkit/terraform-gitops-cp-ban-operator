@@ -18,5 +18,5 @@ echo ">>>>>>>> ${DEST_DIR} ${NAMESPACE} ${NAME}"
 cp -R "${CHART_DIR}"/* "${DEST_DIR}"
 
 #if [[ -n "${VALUES_CONTENT}" ]]; then
-#  echo "${VALUES_CONTENT}" > "${DEST_DIR}/iaf-operator.yaml"
+#  echo "${VALUES_CONTENT}" > "${DEST_DIR}/iaf-operator.yaml" 
 #fi 
