@@ -96,10 +96,3 @@ variable "catalog_namespace" {
   description = "The namespace where the catalog has been deployed"
   default     = "openshift-marketplace"
 }
-
-variable "storageclass_operator" {
-  type        = string
-  #default="cp4a-file-retain-gold-gid"
-  default="portworx-shared-gp1"
-  description = "The storge class for the cp4ba operator"
-}
