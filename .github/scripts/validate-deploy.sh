@@ -4,15 +4,26 @@ GIT_REPO=$(cat git_repo)
 GIT_TOKEN=$(cat git_token)
 
 export KUBECONFIG=$(cat .kubeconfig)
+echo "KUBE CONFIG ${KUBECONFIG}"
 NAMESPACE=$(cat .namespace)
-COMPONENT_NAME=$(jq -r '.name // "iaf-operator"' gitops-output.json)
-BRANCH=$(jq -r '.branch // "main"' gitops-output.json)
-SERVER_NAME=$(jq -r '.server_name // "default"' gitops-output.json)
-LAYER=$(jq -r '.layer_dir // "2-services"' gitops-output.json)
-TYPE=$(jq -r '.type // "base"' gitops-output.json)
+echo "NAMESPACE= ${NAMESPACE}"
+##getting file not found for gitops-output.json so hard coding values
+#COMPONENT_NAME=$(jq -r '.name // "iaf-operator"' gitops-output.json)
+COMPONENT_NAME="iaf-operator"
+echo "COMPONENT_NAME= ${COMPONENT_NAME}"
+#BRANCH=$(jq -r '.branch // "main"' gitops-output.json)
+BRANCH="dev-branch"
+
+#SERVER_NAME=$(jq -r '.server_name // "default"' gitops-output.json)
+SERVER_NAME="default"
+#LAYER=$(jq -r '.layer_dir // "2-services"' gitops-output.json)
+LAYER="2-services"
+
+#TYPE=$(jq -r '.type // "base"' gitops-output.json)
+TYPE="base"
 
 mkdir -p .testrepo
-
+echo "NOW TRYING TO CLONE TO THE TEST REPO"
 git clone https://${GIT_TOKEN}@${GIT_REPO} .testrepo
 
 cd .testrepo || exit 1
