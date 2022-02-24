@@ -6,11 +6,9 @@ GIT_TOKEN=$(cat git_token)
 export KUBECONFIG=$(cat .kubeconfig)
 echo "KUBE CONFIG ${KUBECONFIG}"
 NAMESPACE=$(cat .namespace)
-echo "NAMESPACE= ${NAMESPACE}"
 ##getting file not found for gitops-output.json so hard coding values
 #COMPONENT_NAME=$(jq -r '.name // "iaf-operator"' gitops-output.json)
 COMPONENT_NAME="iaf-operator"
-echo "COMPONENT_NAME= ${COMPONENT_NAME}"
 #BRANCH=$(jq -r '.branch // "main"' gitops-output.json)
 BRANCH="dev-branch"
 
