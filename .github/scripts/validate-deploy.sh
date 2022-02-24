@@ -18,7 +18,7 @@ git clone https://${GIT_TOKEN}@${GIT_REPO} .testrepo
 cd .testrepo || exit 1
 
 find . -name "*"
-
+### CHeck for the yaml files are copied to the repo
 if [[ ! -f "argocd/${LAYER}/cluster/${SERVER_NAME}/${TYPE}/${NAMESPACE}-${COMPONENT_NAME}.yaml" ]]; then
   echo "ArgoCD config missing - argocd/${LAYER}/cluster/${SERVER_NAME}/${TYPE}/${NAMESPACE}-${COMPONENT_NAME}.yaml"
   exit 1
@@ -49,22 +49,22 @@ else
   echo "Found namespace: ${NAMESPACE}. Sleeping for 30 seconds to wait for everything to settle down"
   sleep 30
 fi
-
-DEPLOYMENT="${COMPONENT_NAME}-${BRANCH}"
+## Check if the subscription for ibm-automation is there 
+SUBSNAME="ibm-automation"
 count=0
-until kubectl get deployment "${DEPLOYMENT}" -n "${NAMESPACE}" || [[ $count -eq 20 ]]; do
-  echo "Waiting for deployment/${DEPLOYMENT} in ${NAMESPACE}"
+until kubectl get subs "${SUBSNAME}" -n "${NAMESPACE}" || [[ $count -eq 20 ]]; do
+  echo "Waiting for Subscription/${SUBSNAME} in ${NAMESPACE}"
   count=$((count + 1))
   sleep 15
 done
 
 if [[ $count -eq 20 ]]; then
-  echo "Timed out waiting for deployment/${DEPLOYMENT} in ${NAMESPACE}"
+  echo "Timed out waiting for Subscription/${SUBSNAME} in ${NAMESPACE}"
   kubectl get all -n "${NAMESPACE}"
   exit 1
 fi
 
-kubectl rollout status "deployment/${DEPLOYMENT}" -n "${NAMESPACE}" || exit 1
+#kubectl rollout status "deployment/${DEPLOYMENT}" -n "${NAMESPACE}" || exit 1
 
 cd ..
 rm -rf .testrepo 
