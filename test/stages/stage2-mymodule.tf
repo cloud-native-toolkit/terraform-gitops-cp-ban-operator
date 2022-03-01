@@ -1,4 +1,4 @@
-module "cp4ba_operator" {
+module "cp4ba-operator" {
   source = "./module"
 
   gitops_config = module.gitops.gitops_config
