@@ -1,5 +1,5 @@
 locals {
-  name          = "ibm-cp4ba-operator"
+  name          = "cp4ba-operator"
   subscription_name= "ibm-cp4a-operator"
   bin_dir       = module.setup_clis.bin_dir
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
