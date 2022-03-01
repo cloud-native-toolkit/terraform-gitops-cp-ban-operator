@@ -1,8 +1,8 @@
-name: cp4ba-operator
+name: iaf-operator
 type: gitops
 description: >-
   Module to populate a gitops repo with the resources to provision
-  cp-cp4ba-operator
+  cp4ba-operator
 tags:
   - tools
   - gitops
@@ -20,10 +20,6 @@ versions:
         refs:
           - source: github.com/cloud-native-toolkit/terraform-gitops-namespace.git
             version: '>= 1.0.0'
-      - id: gitops_storeclass
-        refs: 
-          - source: github.com/cloud-native-toolkit/terraform-gitops-ocp-storageclass
-            version: '>= 1.0.0'           
     variables:
       - name: gitops_config
         moduleRef:
@@ -45,4 +41,3 @@ versions:
         moduleRef:
           id: gitops
           output: sealed_secrets_cert
-softwareProvider: ibm-cp
