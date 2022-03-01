@@ -1,28 +1,31 @@
 locals {
-  name          = "iaf-operator"
+  name          = "cp4ba-operator"
+  subscription_name= "ibm-cp4a-operator"
   bin_dir       = module.setup_clis.bin_dir
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
+  yaml_dir_pvc      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}_pvc"
   service_url   = "http://${local.name}.${var.namespace}"
-  chart_dir = "${path.module}/chart/iaf-operator"
+  subscription_chart_dir = "${path.module}/charts/ibm-cp4ba-operator"
+  
   values_content = {
-    "ibm-iaf-operator" = {
+    "ibm-ba-operator" = {
       subscriptions = {
         ibmcp4a = {
-          name = "ibm-automation"
+          name = "ibm-cp4a"
+          namespace = var.namespace
           subscription = {
-            #channel             = var.channel
-            channel             = "v1.3"
+            channel             = var.channel
             installPlanApproval = "Automatic"
-            name                = "ibm-automation"
-            #source              = var.catalog
-            source              = "ibm-operator-catalog"
-            #sourceNamespace     = var.catalog_namespace
-            sourceNamespace     = "openshift-marketplace"
+            name                = "ibm-cp4a-operator"
+            source              = var.catalog
+            sourceNamespace     = var.catalog_namespace
           }
         }
       }
-    }   
-   }
+    }
+    values_file = "values-${var.server_name}.yaml"   
+  }
+
   layer = "services"
   type  = "base"
   application_branch = "main" 

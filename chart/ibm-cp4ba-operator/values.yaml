@@ -5,6 +5,7 @@
 subscriptions:
   ibmcp4a:
     name: ibm-cp4a
+    namespace: gitops-cp4ba-operator
     subscription:
       channel: v21.1
       installPlanApproval: Automatic
