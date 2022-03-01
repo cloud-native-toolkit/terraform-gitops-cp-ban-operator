@@ -8,7 +8,7 @@ echo "KUBE CONFIG ${KUBECONFIG}"
 NAMESPACE=$(cat .namespace)
 ##getting file not found for gitops-output.json so hard coding values
 #COMPONENT_NAME=$(jq -r '.name // "iaf-operator"' gitops-output.json)
-COMPONENT_NAME="iaf-operator"
+COMPONENT_NAME="cp4ba-operator"
 #BRANCH=$(jq -r '.branch // "main"' gitops-output.json)
 BRANCH="dev-branch"
 

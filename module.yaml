@@ -1,4 +1,4 @@
-name: iaf-operator
+name: cp4ba-operator
 type: gitops
 description: >-
   Module to populate a gitops repo with the resources to provision
