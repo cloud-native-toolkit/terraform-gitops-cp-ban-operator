@@ -1,22 +1,21 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR=$(cd $(dirname "$0"); pwd -P)
+MODULE_DIR=$(cd "${SCRIPT_DIR}/.."; pwd -P)
+
 NAME="$1"
-DEST_DIR="$2"
-NAMESPACE="$3"
-CHART_DIR="$4"
+CHART_DIR="$2"
+DEST_DIR="$3"
+#VALUES_FILE="$4"
 
 mkdir -p "${DEST_DIR}"
-echo ">>>>>>>> ${DEST_DIR} ${NAMESPACE} ${NAME}"
-#PARMLENGTH=$(echo "${PARMS}" | jq '. | length')
 
-#if [[ ${PARMLENGTH} != 0 ]]; then
+## Add logic here to put the yaml resource content in DEST_DIR
 
-#cat >> ${DEST_DIR}/pvc_operator.yaml << EOL
-#parameters: $(echo "${PARMS}" | jq -c 'from_entries')
-#EOL
-#fi 
 cp -R "${CHART_DIR}"/* "${DEST_DIR}"
 
 #if [[ -n "${VALUES_CONTENT}" ]]; then
-#  echo "${VALUES_CONTENT}" > "${DEST_DIR}/iaf-operator.yaml" 
-#fi 
+#  echo "${VALUES_CONTENT}" > "${DEST_DIR}/values.yaml}"
+#fi
+
+find "${DEST_DIR}" -name "*"

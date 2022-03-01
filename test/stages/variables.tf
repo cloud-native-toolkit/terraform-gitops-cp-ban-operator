@@ -1,12 +1,13 @@
 
-variable cluster_username { 
+# Resource Group Variables
+variable "resource_group_name" {
   type        = string
-  description = "The username for AWS access"
+  description = "Existing resource group where the IKS cluster will be provisioned."
 }
 
-variable "cluster_password" {
+variable "ibmcloud_api_key" {
   type        = string
-  description = "The password for AWS access"
+  description = "The api key for IBM Cloud access"
 }
 
 variable "server_url" {
@@ -20,6 +21,7 @@ variable "bootstrap_prefix" {
 
 variable "namespace" {
   type        = string
+  default = "cp4ba"
   description = "Namespace for tools"
 }
 
@@ -38,6 +40,18 @@ variable "cluster_exists" {
   type        = string
   description = "Flag indicating if the cluster already exists (true or false)"
   default     = "true"
+}
+
+variable "name_prefix" {
+  type        = string
+  description = "Prefix name that should be used for the cluster and services. If not provided then resource_group_name will be used"
+  default     = ""
+}
+
+variable "vpc_cluster" {
+  type        = bool
+  description = "Flag indicating that this is a vpc cluster"
+  default     = false
 }
 
 variable "git_token" {
@@ -75,6 +89,7 @@ variable "kubeseal_namespace" {
 
 variable "cp_entitlement_key" {
 }
+
 variable "channel" {
   type        = string
   description = "The channel that should be used to deploy the operator"
