@@ -6,7 +6,7 @@ locals {
   yaml_dir_pvc      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}_pvc"
   service_url   = "http://${local.name}.${var.namespace}"
   subscription_chart_dir = "${path.module}/charts/ibm-cp4ba-operator"
-  
+
   values_content = {
     "ibm-ba-operator" = {
       subscriptions = {
@@ -39,7 +39,7 @@ module setup_clis {
 
 resource null_resource create_yaml {  
   provisioner "local-exec" {
-    command = "${path.module}/scripts/create-yaml.sh '${local.name}' '${local.yaml_dir}' '${local.namespace}'  '${local.chart_dir}'"
+    command = "${path.module}/scripts/create-yaml.sh '${local.name}' '${local.subscription_chart_dir}' '${local.yaml_dir}'"
 
     environment = {
       VALUES_CONTENT = yamlencode(local.values_content)
