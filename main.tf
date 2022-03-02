@@ -8,7 +8,7 @@ locals {
   subscription_chart_dir = "${path.module}/charts/ibm-cp4ba-operator"
 
   values_content = {
-    "ibm-ba-operator" = {
+    "cp4ba-operator" = {
       subscriptions = {
         ibmcp4a = {
           name = "ibm-cp4a"
