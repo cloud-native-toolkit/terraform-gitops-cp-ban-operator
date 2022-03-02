@@ -89,10 +89,30 @@ variable "catalog" {
   type        = string
   description = "The catalog source that should be used to deploy the operator"
   default     = "ibm-operator-catalog"  
-  #default     = "iaf-core-operators"
+  
 }
 variable "catalog_namespace" {
   type        = string   
   description = "The namespace where the catalog has been deployed"
   default     = "openshift-marketplace"
+}
+variable "storageclass_operator" {
+  type        = string
+  default="cp4a-file-retain-gold-gid"
+  description = "The storge class for operator pvc"
+}
+variable "storage_class_gold_name" {
+  type        = string
+  default="cp4a-file-retain-gold-gid"
+  description = "The storge class for the fast acces"
+}
+variable "storage_class_silver_name" {
+  type        = string
+  default="cp4a-file-retain-silver-gid"
+  description = "The storge class for the medium access"
+}
+variable "storage_class_bronze_name" {
+  type        = string
+  default="cp4a-file-retain-bronze-gid"
+  description = "The storge class for the slow access"
 }
