@@ -6,6 +6,7 @@ NAMESPACE="$3"
 CHART_DIR="$4"
 
 mkdir -p "${DEST_DIR}"
+
 echo ">>>>>>>> ${DEST_DIR} ${NAMESPACE} ${NAME}"
 #PARMLENGTH=$(echo "${PARMS}" | jq '. | length')
 
@@ -16,7 +17,7 @@ echo ">>>>>>>> ${DEST_DIR} ${NAMESPACE} ${NAME}"
 #EOL
 #fi 
 cp -R "${CHART_DIR}"/* "${DEST_DIR}"
-
+echo "Created Destination Directory ${DEST_DIR}"
 #if [[ -n "${VALUES_CONTENT}" ]]; then
 #  echo "${VALUES_CONTENT}" > "${DEST_DIR}/iaf-operator.yaml" 
 #fi 
