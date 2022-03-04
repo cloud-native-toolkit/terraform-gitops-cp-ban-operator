@@ -5,7 +5,7 @@ locals {
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
   yaml_dir_pvc      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}_pvc"
   service_url   = "http://${local.name}.${var.namespace}"
-  subscription_chart_dir = "${path.module}/charts/ibm-cp4ba-operator"
+  subscription_chart_dir = "${path.module}/chart/ibm-cp4ba-operator"
   #chart_dir = "${path.module}/chart/ibm-cp4ba-operator"
 
   values_content = {
