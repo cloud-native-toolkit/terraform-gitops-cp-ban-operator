@@ -4,6 +4,7 @@ NAME="$1"
 DEST_DIR="$2"
 NAMESPACE="$3"
 CHART_DIR="$4"
+STORAGECLASS="$5"
 
 mkdir -p "${DEST_DIR}"
 
