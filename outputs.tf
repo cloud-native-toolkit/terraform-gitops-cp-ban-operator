@@ -29,6 +29,12 @@ output "layer" {
   depends_on  = [null_resource.setup_gitops]
 }
 
+output "layerpvc" {
+  description = "The layer where the module is deployed"
+  value       = local.layer
+  depends_on  = [null_resource.setup_gitops_pvc]
+}
+
 output "type" {
   description = "The type of module where the module is deployed"
   value       = local.type

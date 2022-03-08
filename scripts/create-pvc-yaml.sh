@@ -4,8 +4,7 @@ NAME="$1"
 DEST_DIR="$2"
 STORAGECLASS="$3"
 NAMESPACE="$4"
-
-
+  
 mkdir -p "${DEST_DIR}"
 echo "Destination directory is ${DEST_DIR}"
 cat > "${DEST_DIR}/pvc_operator_log.yaml" << EOL
