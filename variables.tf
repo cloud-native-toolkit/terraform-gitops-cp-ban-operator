@@ -98,7 +98,8 @@ variable "catalog_namespace" {
 }
 variable "storageclass_operator" {
   type        = string
-  default="cp4a-file-retain-gold-gid"
+  #default="cp4a-file-retain-gold-gid"
+  default="ibmc-vpc-block-metro-retain-10iops-tier"
   description = "The storge class for operator pvc"
 }
 variable "storage_class_gold_name" {
