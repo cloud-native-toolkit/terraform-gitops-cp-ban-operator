@@ -1,8 +1,7 @@
-name: gitops-cp-ban-operator
+name: cp4ba-ban
 type: gitops
 description: >-
-  Module to populate a gitops repo with the resources to provision
-  cp-ban-operator
+  Module for gitops deployment of CP4BA Business Automation Navigator
 tags:
   - tools
   - gitops
